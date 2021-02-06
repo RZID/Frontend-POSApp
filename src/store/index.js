@@ -1,9 +1,13 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import mdCategory from './modules/category'
+import mdUser from './modules/user'
+import mdMenu from './modules/menu'
+import mdProduct from './modules/product'
 
 Vue.use(Vuex)
 
-export default new Vuex.Store({
+const store = new Vuex.Store({
   state: {
   },
   mutations: {
@@ -11,5 +15,10 @@ export default new Vuex.Store({
   actions: {
   },
   modules: {
+    category: mdCategory,
+    user: mdUser,
+    menu: mdMenu,
+    product: mdProduct
   }
 })
+export default store

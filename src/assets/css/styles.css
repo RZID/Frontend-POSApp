@@ -1,0 +1,90 @@
+@font-face{
+    font-family: 'airbnb';
+    src:url('../fonts/airbnb/AirbnbCerealMedium.ttf')
+}
+body{
+    font-family: 'airbnb';
+}
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+.slider-green{
+    color: #82DE3A;
+    border-color: #82DE3A;
+    background-color: white !important;
+}
+.btn-outline-green{
+    transition: .5s;
+    border-color: #82DE3A;
+    color: #82DE3A;
+    background: rgba(130, 222, 58, 0.2);
+}
+.btn-outline-green:hover{
+    transition: .5s;
+    border-color: #82DE3A;
+    color: white;
+    background: rgba(35, 75, 7, 0.2);
+}
+.btn-green{
+    transition: .5s;
+    color: white;
+    background: #82DE3A;
+}
+.btn-green:hover{
+    transition: .5s;
+    color: white;
+    background: #518d24;
+}
+.bg-dim{
+    background-color: rgba(0, 0, 0, 0.5);
+}
+.hoverme:hover{
+    background-color: #0000006c;
+    transition: .75s;
+}
+.hoverme:hover .img-card{
+    filter: brightness(50%);
+    transition: .75s;
+}
+.hovering:hover{
+    color: #5050506c !important;
+    transition: .75s;
+}
+.pullPush-enter-active {
+    animation: pushDown 1s;
+}
+.pullPush-leave-active{
+    animation: pullUp 1s;
+}
+.pullPush-enter, .pullPush-leave-to {
+    opacity: 0;
+}
+.form-control:focus {
+    outline:0 !important;
+    box-shadow: none !important;
+}
+.trans{
+    transition: all .5s;
+}
+@keyframes pullUp {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to{ 
+        opacity: 0;
+        transform: translateY(-200%);
+    }
+}
+@keyframes pushDown {
+    from {
+        opacity: 0;
+        transform: translateY(-200%);
+    }
+    to{ 
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
