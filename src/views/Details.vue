@@ -49,12 +49,21 @@
                       <h5 class="align-self-end">Price</h5>
                     </div>
                     <div class="col">
-                      <input
-                        v-model="data.price"
-                        type="number"
-                        class="form-control"
-                        aria-describedby="emailHelp"
-                      />
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" id="basic-addon1"
+                            >IDR
+                          </span>
+                        </div>
+                        <input
+                          v-model="data.price"
+                          type="text"
+                          v-rupiah
+                          v-text="'hola'"
+                          class="form-control"
+                          aria-describedby="emailHelp"
+                        />
+                      </div>
                     </div>
                   </div>
                   <div class="row my-3">
@@ -157,11 +166,21 @@ export default {
       rawImage: null
     }
   },
+  directives: {
+    rupiah: {
+      update: (el) => {
+        if (el.value) {
+          el.value = parseInt((el.value).replace(/\D/g, "")).toLocaleString('id-ID')
+        }
+      }
+    }
+  },
   methods: {
     ...mapActions({
       getDetail: 'product/getDetailProduct',
       editProduct: 'product/editProduct',
-      deleteProduct: 'product/deleteProduct'
+      deleteProduct: 'product/deleteProduct',
+      setPage: 'page/setPage'
     }),
     getCategory () {
       Axios.get(`${process.env.VUE_APP_BACKEND}/category`, {
@@ -197,7 +216,7 @@ export default {
         sendData = {
           id: this.$route.params.id,
           name: this.data.name,
-          price: this.data.price,
+          price: this.data.price.toString().split('.').join(''),
           category: this.data.category_id,
           image: this.rawImage
         }
@@ -205,10 +224,11 @@ export default {
         sendData = {
           id: this.$route.params.id,
           name: this.data.name,
-          price: this.data.price,
+          price: this.data.price.toString().split('.').join(''),
           category: this.data.category_id
         }
       }
+      console.log(sendData)
       this.editProduct(sendData).then(() => {
         this.data = ''
         this.getDetail(this.$route.params.id).then(res => {
@@ -221,7 +241,8 @@ export default {
   computed: {
     ...mapGetters({
       getSidebar: 'menu/getSidebar',
-      getToken: 'user/getToken'
+      getToken: 'user/getToken',
+      getPage: 'page/getPage'
     })
   },
   mounted () {

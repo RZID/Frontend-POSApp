@@ -7,9 +7,18 @@
 .grow::before{
     content: none;
 }
-.card{
-    border-radius: 0px 0px 10px 10px;
+.card-1{
+    background: linear-gradient(278.29deg, #FBB2B4 30.05%, rgba(255, 143, 178, 0) 133.19%);
 }
+.card-2{
+    background: linear-gradient(278.29deg, #29DFFF 30.05%, rgba(41, 223, 255, 0) 133.19%);
+}
+.card-3{
+    background: linear-gradient(278.29deg, #AB84C8 30.05%, rgba(241, 201, 236, 0) 133.19%);
+}
+/* .card{
+    border-radius: 0px 0px 10px 10px;
+} */
 .overflow-y{
     overflow-y: auto;
     overflow-x: hidden;

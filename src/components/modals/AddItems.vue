@@ -125,9 +125,8 @@
 import Axios from 'axios'
 import { mapGetters, mapActions } from 'vuex'
 import Alert from '../../helpers/swal'
-import Page from '../../helpers/page'
 export default {
-  mixins: [Alert, Page],
+  mixins: [Alert],
   data: () => {
     return {
       form: {
@@ -142,18 +141,20 @@ export default {
   },
   computed: {
     ...mapGetters({
-      getToken: 'user/getToken'
+      getToken: 'user/getToken',
+      getPage: 'page/getPage'
     })
   },
   methods: {
     ...mapActions({
       addNewProduct: 'product/addNewProduct',
-      setProduct: 'menu/setProduct'
+      setProduct: 'menu/setProduct',
+      setPage: 'page/setPage'
     }),
     addItem () {
       this.addNewProduct(this.form).then(() => {
         this.setProduct()
-        this.currentPage = 1
+        this.setPage(1)
         this.form = {}
         this.imageURL = ''
         this.toastSuccess('Success! New product added')

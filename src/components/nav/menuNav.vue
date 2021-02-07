@@ -42,7 +42,8 @@ export default {
     ...mapActions({
       setProduct: 'menu/setProduct',
       setSidebar: 'menu/setSidebar',
-      setFilterBar: 'menu/setFilterBar'
+      setFilterBar: 'menu/setFilterBar',
+      setPage: 'page/setPage'
     }),
     toggleSidebar () {
       this.setSidebar()
@@ -50,6 +51,7 @@ export default {
     filterBar () {
       this.setProduct()
       this.setFilterBar()
+      this.setPage(1)
     }
   }
 }

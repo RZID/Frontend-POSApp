@@ -32,6 +32,14 @@
                 <p class="text-muted">Check your filter in advance</p>
               </div>
               <div v-else>
+                <b-pagination
+                  size="sm"
+                  v-model="$store.state.page.currentPage"
+                  :total-rows="getPageProp.filteredData"
+                  :per-page="getPageProp.limit"
+                  @click="setPage(page)"
+                  @input="goFilter()"
+                ></b-pagination>
                 <div class="row">
                   <div
                     class="col-lg-4 col-sm-6 col-12 py-2"
@@ -125,28 +133,55 @@ import cart from '../components/slice/CartItem'
 import currency from '../helpers/currency'
 import filterBar from '../components/nav/filterBar'
 import Alert from '../helpers/swal'
+
 import { mapGetters, mapActions } from 'vuex'
 export default {
   mixins: [currency, Alert],
   components: { menuNav, sideBar, foods, cart, checkoutModal, filterBar },
+  data: () => {
+    return {
+      filtering: {
+        search: '',
+        searchBy: 'name',
+        sort: '',
+        sortMethod: 'asc'
+      }
+    }
+  },
   computed: {
     ...mapGetters({
       getSidebar: 'menu/getSidebar',
       getProduct: 'menu/getProduct',
       getCart: 'menu/getCart',
       getFilterBar: 'menu/getFilterBar',
-      getEmpty: 'menu/getEmpty'
+      getEmpty: 'menu/getEmpty',
+      getPageProp: 'menu/getPage',
+      currentPage: 'page/getPage'
     })
   },
   methods: {
     ...mapActions({
       setProduct: 'menu/setProduct',
-      setEmpty: 'menu/acRemoveAll'
+      setEmpty: 'menu/acRemoveAll',
+      setPage: 'page/setPage'
     }),
     cancel () {
       this.alertQuestion('Are you sure?', 'All data in your cart will be remove').then(() => {
         this.setEmpty()
       })
+    },
+    goFilter (resetPage) {
+      if (resetPage) {
+        this.setPage = 1
+      }
+      const filter = {
+        by: this.filtering.searchBy,
+        like: this.filtering.search,
+        order: this.filtering.sort,
+        orderMethod: this.filtering.sortMethod,
+        page: this.currentPage
+      }
+      this.setProduct(filter)
     }
   },
   mounted () {
