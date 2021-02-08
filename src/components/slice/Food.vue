@@ -7,7 +7,14 @@
       >
         <div class="card-img-top">
           <div
-            :style="'background-image:url(' + getImage(data.image) + ')'"
+            :style="
+              'background-image:url(' +
+              getImage(data.image) +
+              ')' +
+              ', url(' +
+              getImage('default.jpg') +
+              ')'
+            "
             class="img-card"
             :alt="'Image of ' + data.name"
           >

@@ -5,7 +5,14 @@
         <div class="row no-gutters">
           <div class="col-4">
             <div
-              :style="'background-image:url(' + getImage(data.image) + ')'"
+              :style="
+                'background-image:url(' +
+                getImage(data.image) +
+                ')' +
+                ', url(' +
+                getImage('default.jpg') +
+                ')'
+              "
               class="img-cart h-100"
               :alt="'Image Of ' + data.name"
             ></div>

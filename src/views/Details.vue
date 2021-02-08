@@ -23,7 +23,10 @@
                     backend +
                     '/image/' +
                     data.image +
-                    ')'
+                    ')' +
+                    ',url(' +
+                    backend +
+                    '/image/default.jpg)'
                   "
                   class="h-100 div-center-img"
                   alt="..."
@@ -150,12 +153,13 @@ import { mapActions, mapGetters } from 'vuex'
 import sideBar from '../components/nav/sideBar'
 import detailNav from '../components/nav/detailNav'
 import Axios from 'axios'
+import Currency from '../helpers/currency'
 import Alert from '../helpers/swal'
 export default {
   components: {
     sideBar, detailNav
   },
-  mixins: [Alert],
+  mixins: [Alert, Currency],
   data: () => {
     return {
       data: {},
@@ -164,15 +168,6 @@ export default {
       imageSet: false,
       imageURL: '',
       rawImage: null
-    }
-  },
-  directives: {
-    rupiah: {
-      update: (el) => {
-        if (el.value) {
-          el.value = parseInt((el.value).replace(/\D/g, "")).toLocaleString('id-ID')
-        }
-      }
     }
   },
   methods: {
@@ -228,14 +223,15 @@ export default {
           category: this.data.category_id
         }
       }
-      console.log(sendData)
       this.editProduct(sendData).then(() => {
         this.data = ''
         this.getDetail(this.$route.params.id).then(res => {
           this.data = res
           this.toastSuccess('Data was updated!')
         })
-      }).catch((err) => this.toastDanger(err))
+      }).catch((err) => this.toastDanger(err)).finally(() => {
+        this.setPage(1)
+      })
     }
   },
   computed: {

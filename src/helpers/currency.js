@@ -6,6 +6,15 @@ const currency = {
             }
             return `Rp. ${number.toLocaleString('id-ID')},-`
         }
+    },
+    directives: {
+        rupiah: {
+            update: (el) => {
+                if (el.value) {
+                    el.value = parseInt((el.value).replace(/\D/g, "")).toLocaleString('id-ID')
+                }
+            }
+        }
     }
 }
 export default currency

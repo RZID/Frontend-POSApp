@@ -85,12 +85,14 @@ export default {
     ...mapGetters({
       getSidebarStat: 'menu/getSidebar',
       getCart: 'menu/getCart',
-      getUserdata: 'user/getUserdata'
+      getUserdata: 'user/getUserdata',
+      getPage: 'page/getPage'
     })
   },
   methods: {
     ...mapActions({
-      getLogOut: 'user/logOut'
+      getLogOut: 'user/logOut',
+      pageSet: 'page/setPage'
     }),
     signOut () {
       this.alertQuestion('Are you sure?', 'Your session will destroyed').then(() => {

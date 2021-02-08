@@ -6,6 +6,7 @@ import mdMenu from './modules/menu'
 import mdProduct from './modules/product'
 import mdHistory from './modules/history'
 import mdPage from './modules/page'
+import mdCard from './modules/cardHistory'
 
 Vue.use(Vuex)
 
@@ -22,7 +23,8 @@ const store = new Vuex.Store({
     menu: mdMenu,
     product: mdProduct,
     history: mdHistory,
-    page: mdPage
+    page: mdPage,
+    card: mdCard
   }
 })
 export default store

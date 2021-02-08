@@ -32,19 +32,19 @@
                       @change="sendFile($event)"
                       type="file"
                       accept="image/jpeg, image/png"
-                      id="gotoFile"
+                      id="gotoFileMd"
                       style="display: none"
                     />
                     <button
                       type="button"
                       class="btn btn-block btn-primary2"
-                      onclick="document.getElementById('gotoFile').click();"
+                      onclick="document.getElementById('gotoFileMd').click();"
                     >
-                      <span v-if="!imageURL"> Upload </span>
+                      <span v-if="!imageURLMd"> Upload </span>
                       <span v-else> Change </span>
                     </button>
                     <button
-                      v-if="imageURL"
+                      v-if="imageURLMd"
                       type="button"
                       class="btn btn-block btn-red"
                       @click="delFile()"
@@ -53,10 +53,10 @@
                     </button>
                   </div>
                 </div>
-                <div v-if="imageURL" class="col">
+                <div v-if="imageURLMd" class="col">
                   <div
                     class="w-100 m-h-10 img-thumbnail div-center-img"
-                    :style="'background-image:url(' + imageURL + ')'"
+                    :style="'background-image:url(' + imageURLMd + ')'"
                   ></div>
                 </div>
               </div>
@@ -69,12 +69,18 @@
               </div>
             </div>
             <div class="col">
-              <input
-                type="number"
-                class="form-control"
-                v-model="form.price"
-                required
-              />
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon1">Rp.</span>
+                </div>
+                <input
+                  type="text"
+                  class="form-control"
+                  v-model="form.price"
+                  v-rupiah
+                  required
+                />
+              </div>
             </div>
           </div>
           <div class="row mb-3">
@@ -125,8 +131,9 @@
 import Axios from 'axios'
 import { mapGetters, mapActions } from 'vuex'
 import Alert from '../../helpers/swal'
+import Currency from '../../helpers/currency'
 export default {
-  mixins: [Alert],
+  mixins: [Alert, Currency],
   data: () => {
     return {
       form: {
@@ -135,7 +142,7 @@ export default {
         price: null,
         category: 1
       },
-      imageURL: '',
+      imageURLMd: '',
       category: []
     }
   },
@@ -152,11 +159,12 @@ export default {
       setPage: 'page/setPage'
     }),
     addItem () {
+      this.form.price = this.form.price.toString().split('.').join('')
       this.addNewProduct(this.form).then(() => {
         this.setProduct()
         this.setPage(1)
         this.form = {}
-        this.imageURL = ''
+        this.imageURLMd = ''
         this.toastSuccess('Success! New product added')
         this.$bvModal.hide('addItem')
       }).catch(err => {
@@ -164,12 +172,12 @@ export default {
       })
     },
     sendFile (event) {
-      const file = event.target.files[0];
-      this.imageURL = URL.createObjectURL(file);
+      const file = event.target.files[0]
+      this.imageURLMd = URL.createObjectURL(file)
       this.form.image = file
     },
     delFile () {
-      this.imageURL = ''
+      this.imageURLMd = ''
       this.form.image = ''
     },
     getCategory () {

@@ -20,8 +20,8 @@
                   <div class="h-100 d-flex">
                     <div class="align-self-center">
                       <h6 class="m-0">Today's Income</h6>
-                      <h3 class="m-0">todayIncome</h3>
-                      <h6 class="m-0">+ Yesterday</h6>
+                      <h3 class="m-0">{{ getTodayIncome }}</h3>
+                      <!-- <h6 class="m-0">{{ getPercentage.todayYesterday }}</h6> -->
                     </div>
                   </div>
                 </div>
@@ -33,8 +33,8 @@
                   <div class="h-100 d-flex">
                     <div class="align-self-center">
                       <h6 class="m-0">Orders</h6>
-                      <h3 class="m-0">totalOrder</h3>
-                      <h6 class="m-0">+ Last Week</h6>
+                      <h3 class="m-0">{{ getOrders }}</h3>
+                      <!-- <h6 class="m-0">{{ getPercentage.thisWeekLastWeek }}</h6> -->
                     </div>
                   </div>
                 </div>
@@ -46,8 +46,8 @@
                   <div class="h-100 d-flex">
                     <div class="align-self-center">
                       <h6 class="m-0">This Year Income</h6>
-                      <h3 class="m-0">thisYearIncome</h3>
-                      <h6 class="m-0">+ Last Year</h6>
+                      <h3 class="m-0">{{ toRupiah(getYearIncome) }}</h3>
+                      <!-- <h6 class="m-0">{{ getPercentage.thisYearLastYear }}</h6> -->
                     </div>
                   </div>
                 </div>
@@ -133,7 +133,9 @@ import chart from '../components/chart/index'
 import sideBar from '../components/nav/sideBar'
 import navBar from '../components/nav/historyNav'
 import tableOrder from '../components/tables/orders'
+import currency from '../helpers/currency'
 export default {
+  mixins: [currency],
   data: () => {
     return {
       table: '1',
@@ -148,12 +150,17 @@ export default {
       getToken: 'user/getToken',
       getHistory: 'history/getHistory',
       getStatusHistory: 'history/getStatusHistory',
-      getPageProp: 'history/getPageProp'
+      getPageProp: 'history/getPageProp',
+      getTodayIncome: 'card/getTodayIncome',
+      getOrders: 'card/getOrders',
+      getYearIncome: 'card/getYearIncome',
+      getPercentage: 'card/getPercentage'
     })
   },
   methods: {
     ...mapActions({
-      setHistory: 'history/setHistory'
+      setHistory: 'history/setHistory',
+      setCard: 'card/setCartData'
     }),
     setTable (resetPage) {
       if (resetPage) {
@@ -191,6 +198,7 @@ export default {
     const betweenEnd = Moment().endOf('day').unix()
     const today = { betweenStart: betweenStart, betweenEnd: betweenEnd }
     this.setHistory(today)
+    this.setCard()
   }
 }
 </script>
