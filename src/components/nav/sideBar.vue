@@ -18,7 +18,7 @@
       </router-link>
     </div>
     <div class="mt-4">
-      <router-link to="/history" class="text-dark">
+      <router-link to="/history" class="text-dark" @click="setPage(1)">
         <div>
           <img src="/icons/clipboard.svg" width="40px" alt="" />
           <span
