@@ -20,7 +20,7 @@
                   <div class="h-100 d-flex">
                     <div class="align-self-center">
                       <h6 class="m-0">Today's Income</h6>
-                      <h3 class="m-0">{{ getTodayIncome }}</h3>
+                      <h3 class="m-0">{{ toRupiah(getTodayIncome) }}</h3>
                       <!-- <h6 class="m-0">{{ getPercentage.todayYesterday }}</h6> -->
                     </div>
                   </div>

@@ -172,7 +172,7 @@ export default {
     },
     goFilter (resetPage) {
       if (resetPage) {
-        this.setPage = 1
+        this.setPage(1)
       }
       const filter = {
         by: this.filtering.searchBy,

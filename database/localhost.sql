@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Feb 07, 2021 at 06:31 AM
+-- Generation Time: Feb 08, 2021 at 02:31 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.2.34
 
@@ -124,34 +124,33 @@ CREATE TABLE `tb_product` (
 --
 
 INSERT INTO `tb_product` (`id_product`, `name_product`, `price_product`, `category_product`, `image_product`) VALUES
-(1, 'Espresso', 10000, 1, '1611739111577.png'),
-(2, 'Coffee Latte', 15000, 1, '1612672701427.jpg'),
-(3, 'Cappucino', 5000, 1, '1612661302982.png'),
-(4, 'Red Velvet Latte', 33000, 2, '1611739306022.png'),
-(5, 'Choco Rhum', 28000, 6, '1611739341236.png'),
-(6, 'Black Forest', 30000, 6, '1611739413266.png'),
-(7, 'Chicken Katsu Dabu-dabu', 60000, 7, '1611739463283.png'),
-(8, 'Salmon Truffle Teriyaki', 60000, 7, '1611739493568.png'),
-(9, 'Wiener Schnitzel', 69000, 7, '1611739517892.png'),
-(10, 'Affogato', 25000, 1, '1611741704975.jpeg'),
-(11, 'Americano', 20000, 1, '1611741729543.jpg'),
-(12, 'Macchiato', 20000, 1, '1611741754450.png'),
-(13, 'Mochachino', 25000, 1, '1612673779830.png'),
-(14, 'Green Tea Latte', 25000, 2, '1611741992657.jpg'),
-(16, 'Hot Chocolate', 25000, 2, '1611742056811.jpg'),
-(17, 'Hot Choco Mint', 25000, 2, '1611742071930.jpg'),
-(18, 'Lychee Tea', 19000, 3, '1611742309502.jpg'),
-(19, 'Strawberry Tea', 19000, 3, '1611742328502.jpg'),
-(20, 'Peach Tea', 19000, 3, '1611742347876.jpg'),
-(21, 'Chocolate Delight', 25000, 4, '1611742558482.jpg'),
-(22, 'Green Tea Frap', 25000, 4, '1611742570830.png'),
-(23, 'Caramel Frap', 25000, 4, '1611742586145.jpg'),
-(24, 'Blended Choco Mint', 25000, 4, '1611742602733.jpg'),
-(25, 'Sourberry', 19000, 5, '1611742723014.jpg'),
-(26, 'Mucho Mango', 19000, 5, '1611742732823.jpg'),
-(27, 'Summer Blast', 30000, 5, '1611793306496.jpg'),
-(31, 'Avocado Lava', 40000, 5, '1611925909999.jpg'),
-(46, 'Tea With Strawberry', 20000, 3, '1612593304723.jpg');
+(1, 'Espresso', 10000, 1, '1612739793620.jpg'),
+(2, 'Coffee Latte', 15000, 1, '1612739862177.png'),
+(3, 'Cappucino', 5000, 1, '1612739883006.png'),
+(4, 'Red Velvet Latte', 33000, 2, '1612739900209.png'),
+(5, 'Choco Rhum', 28000, 6, '1612739919352.png'),
+(6, 'Black Forest', 30000, 6, '1612739981470.png'),
+(7, 'Chicken Katsu Dabu-dabu', 60000, 7, '1612739996804.png'),
+(8, 'Salmon Truffle Teriyaki', 60000, 7, '1612740010106.png'),
+(9, 'Wiener Schnitzel', 69000, 7, '1612740020318.png'),
+(10, 'Affogato', 25000, 1, '1612740033484.jpeg'),
+(11, 'Americano', 20000, 1, '1612740066190.png'),
+(12, 'Macchiato', 20000, 1, '1612740099752.jpg'),
+(13, 'Mochachino', 25000, 1, '1612741364473.jpg'),
+(14, 'Green Tea Latte', 25000, 2, '1612741375988.jpg'),
+(16, 'Hot Chocolate', 25000, 2, '1612741387180.jpg'),
+(17, 'Hot Choco Mint', 25000, 2, '1612741398383.jpg'),
+(18, 'Lychee Tea', 19000, 3, '1612741408245.jpg'),
+(19, 'Strawberry Tea', 19000, 3, '1612741419835.jpg'),
+(20, 'Peach Tea', 19000, 3, '1612741337606.jpg'),
+(21, 'Chocolate Delight', 25000, 4, '1612741348755.jpg'),
+(22, 'Green Tea Frap', 25000, 4, '1612741433035.png'),
+(23, 'Caramel Frap', 25000, 4, '1612741444703.jpg'),
+(24, 'Blended Choco Mint', 25000, 4, '1612741464270.jpg'),
+(25, 'Sourberry', 19000, 5, '1612741474543.jpg'),
+(26, 'Mucho Mango', 19000, 5, '1612741486203.jpg'),
+(27, 'Summer Blast', 30000, 5, '1612741498631.jpg'),
+(31, 'Avocado Lava', 40000, 5, '1612741507959.jpeg');
 
 -- --------------------------------------------------------
 
@@ -192,46 +191,7 @@ CREATE TABLE `tb_user` (
 
 INSERT INTO `tb_user` (`id_user`, `name_user`, `email_user`, `password_user`, `access_user`) VALUES
 (1, 'admin', 'admin@kopimu.com', '$2b$10$9jx1yVkyLz15znqoj.ZbkOH4CN.puBHgX.hakDsNPA3fqPOM5T.iC', 1),
-(2, 'cashier 1', 'cashier@kopimu.com', '$2b$10$EDRkJfz28rgdGDGJvJlRReVx1kRyPEcPX9tpkglgoHQD0HSAwF1ma', 2),
-(4, 'Ramadhanu', 'ramadhanu@rzidinc.org', '$2b$10$IdTF.xW3awtsrq8kfBj6l.6R2p6wAakrDQleogzQl5lXLyg5xEkse', 1),
-(5, 'admin', 'admin@rzidinc.xyz', '$2b$10$ElN4/fGt0Anwg6TTCwo5YOHoozxpDJT8ITlu3Cm3Xhs2SDfPvWpye', 1),
-(6, 'admin Lagi', 'admin@udin.xyz', '$2b$10$4sxMxYJ5O0lQQ5elCUDpD.GfMWez/diyxAQB.IJngEca1/b/Gq3jy', 1),
-(7, 'hello', 'admin@oo.php', '$2b$10$sTreEdGJg4.hifFFy9LHQu.XCUdCygW1T2leOyisRV5fbIr5iEJSC', 1),
-(8, 'asd', 'asd@asde1.com', '$2b$10$xa2QEpmSyDQlHbUzUcqrA.MfUjM3A.m2EJESqklISupz5a3etF2u2', 1),
-(9, 'asd', 'asd@min.com', '$2b$10$EMdqkz4Xsfsh94FKyfRcS.DluEycuPr1eOeakugAJADCNFVYwRDxK', 2),
-(10, 'wadma', 'ads@fasd.com', '$2b$10$AQ0/vPmJSDzm85.jgn/sUOpqtBmnwLJxNfwug3HcVGTLvcChTaBg.', 1),
-(11, 'asda', 'asda@agmda.com', '$2b$10$mw0qUysNp.Me6yQqFk/AleE9KgJOBkRy.8XjvghU64ls4a8qh89JC', 1),
-(12, 'admin', 'ad@admin.op', '$2b$10$rGFuDyWMGOpbCl9mDMt1T.ioXMIzCwvd372p0iQd7Zvy.ALcX1zAO', 1),
-(13, 'admin', 'admin@pasd.com', '$2b$10$vRbn8eKkuEjoVS74VlBLMudxuFbwQ4wLQ5WcLd6pF0x2TiFxQVAQ6', 1),
-(14, 'admin', 'dasidn@famsiudha.com', '$2b$10$.pjw4ec/F5IPIc4v3Hw7pO0IXZYVNOWycokd6PdO/XyA3jI6v.AEm', 1),
-(16, 'asda', 'ads@gnasd.com', '$2b$10$lhQZ.ePCZKGdp8iB9iznWeLqOOrbmYZOkxAFC3W55frSE04/nwrGm', 1),
-(17, 'responses', 'asdmin@gnasudh.com', '$2b$10$Ptgts1WpvxeTiYzbHSReWegPoOgu4dBt3Ln8Jr/ihFPfKml/dRjhi', 1),
-(18, 'asdas', 'adsfajoiugfwu@sadhuifhosi.com', '$2b$10$uXOOl6rL9JAJ3/9bssbxp.YHNEmQZryjT85UuqJ/yyYIw4xXp8rKa', 1),
-(19, 'kara', 'asd@ganasdi.com', '$2b$10$O.wK3oqmdIzYnEcJergOaeNvnNiend8ZCUkn70ngEfJbiB.TetDYa', 1),
-(20, 'asdjas', 'dafiusahdf@famisda.com', '$2b$10$tBVXPSfh5A5.FQaYx5UmWOrqtQw68FBQ0wRIiqz1zaLVg2WnxS7M2', 1),
-(21, 'adminasd', 'sfna@fand.com', '$2b$10$6jx7pnOWmx40jdVi6Ds8ruaNScsFWauNyAfQvPzO7rzpjPvY3qGey', 1),
-(22, 'kenapa', 'kok@gitu.sih', '$2b$10$jYsGDgvOMVqE/tPiKFnBYuU8kpO9qSEdjNunX4N3RdZKNTk256UTy', 1),
-(23, 'asd', 'asd@asdaasd.com', '$2b$10$nboboo7HI15S1N46pZvKy.EXH4kuxdU7KrTn1/BKxdert6p0U9t1y', 1),
-(24, 'asd', 'asdanj@asdasd.jir', '$2b$10$hU3usqHuGf3IuJvxKA7Cg.hkAf3/VkTCmr7JIH8s1disOMLQlF9u.', 1),
-(25, 'admin', 'admin@gmail.com', '$2b$10$tGdclU2mBgXV25PJ41PiDecHn9eesU3NoNPLU0kRXxKXzwmHZ0/cu', 1),
-(26, 'asdas', 'asdasda@asdnun.com', '$2b$10$m9OuSTkTqJ7SN5EI6xTZGuNn/.dENN0wPSC5PIOozsPJRvCu5W/qK', 1),
-(27, 'asdas', 'sdauwhfo@fsdofua.com', '$2b$10$rCWJ57QzE8kpJLY3Tep4MuB.nPIXiXLIdze81l4UAYvL6qIp9oz2S', 1),
-(28, 'admin', 'admin@fasda.com', '$2b$10$YKO2ikUEeVCdDum4xRxhSOOEMjaF2.CPI9M6G.YrCRxP5vTfaTXOW', 1),
-(29, 'asd', 'asd@aasd.com', '$2b$10$.cz8TNYjwusyR1MYTV.wiezaszw5ZtObGuYoaTVagGA5GUYMJaf0S', 1),
-(30, 'asd', 'asd@dasd.com', '$2b$10$UEI7KJ/hNsGsa.QG1zffKOTrJ9mO4zbbLklwZsFxgt.Yl5rQIxuVC', 1),
-(31, 'admin', 'adm1231in@bah.com', '$2b$10$RDs2VK.z81oRJ0tPpcCHy.pJOxfBamHdN2G2aqYO2tuGa0FEQYDmG', 1),
-(32, 'asd', 'asdmin@gmasdnais.com', '$2b$10$wIzzJx1S1oIjPJ/vAxZWc.kjTg2jpXltowqjKdwvwy9PcO51VVOM.', 1),
-(33, 'asdasd', 'asda@asdahsduahsiudwdiuj.com', '$2b$10$xTt2tkpXIwcSPSJhpCKvTOcZJcMea5XroJBE.zOTULeKRbRAP.eDK', 1),
-(34, 'asda', 'asdasd3ep3i0@asidjas.com', '$2b$10$8HEneLX8k4sS8tEz1G53T.aj68RzFocsxB3z34PfQM5I19n1RKbGy', 1),
-(35, 'admin', 'admin@admin.com', '$2b$10$jNOx8OZPUMG5XNJpdQwMMOzYL7TgHJPoTtPiaVl0J52mbvsau4uTy', 1),
-(59, 'asd', 'asd@ad', '$2b$10$S321CTKsOGk.PZXqSA9EJuxO5244cuLjHMi9v5rtWRrykhhXuvwby', 1),
-(65, 'admin', 'kk@gmail.com', '$2b$10$pO2txBvy1HB588JTIEqbu.VgpX8asG1XT..x0MT2ClK9SEt7pDaa.', 1),
-(66, 'admin', 'aa@gmail.com', '$2b$10$gzT1vFcKZrSwyzSH4KfK1O2QS7aLK211F5ezzlz.hb/n0VkSwxqRi', 1),
-(67, 'admin', 'admin@oo.com', '$2b$10$2PBmPJJqC.8qcIw52LQNx.QbvX6k3vvlsfKLCRkEatsdQtfz/b2Vu', 1),
-(68, 'admin', 'admin@kk.co.id', '$2b$10$PXESt14dwpBVxuxGplnGb.U3y55lMaGuFyyVudF2BfYntEsK30UTS', 1),
-(69, 'admsid', 'sajhfdoiau@asdjoi.com', '$2b$10$P5Q3IokeOsfRGF72wp5t2OG1kXtx.Fv.mtgjnmIgzhcmnDLbzxC6W', 1),
-(70, 'admin', 'adminin@gmail.com', '$2b$10$D/TVWGik.SHGW2anbSoyaeCQG3e75L1lHHiTWARnHqOxqxmdxt3tm', 1),
-(71, 'admin', 'adminOK@gmail.com', '$2b$10$wa/9zf6IxM4.4TPjN78ByuVfzXP9TVant/7XLwrsOu0xtAU1NPMzC', 1);
+(2, 'cashier 1', 'cashier@kopimu.com', '$2b$10$EDRkJfz28rgdGDGJvJlRReVx1kRyPEcPX9tpkglgoHQD0HSAwF1ma', 2);
 
 --
 -- Indexes for dumped tables
