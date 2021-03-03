@@ -229,9 +229,10 @@ export default {
           this.data = res
           this.toastSuccess('Data was updated!')
         })
-      }).catch((err) => this.toastDanger(err)).finally(() => {
-        this.setPage(1)
-      })
+      }).catch((err) =>
+        this.toastDanger(err.response.data.message)).finally(() => {
+          this.setPage(1)
+        })
     }
   },
   computed: {

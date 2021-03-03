@@ -168,7 +168,7 @@ export default {
         this.toastSuccess('Success! New product added')
         this.$bvModal.hide('addItem')
       }).catch(err => {
-        this.toastAlert(err)
+        this.toastDanger(err.response.data.message)
       })
     },
     sendFile (event) {
