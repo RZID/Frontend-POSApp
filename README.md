@@ -21,7 +21,7 @@ Improved with centralized state management (VUEX)
 ---
 
 ## How the interface?
-Sure, it still look's pretty XD
+Demo On : http://54.84.168.198:8081/
 
 <p align="center">
   <img src="./docs/image3.png">
